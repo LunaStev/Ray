@@ -21,4 +21,25 @@ typedef struct {
 
     short   numnodes;
     short   ticdup;
-};
+    short   extratics;
+    short   deathmatch;
+    short   savegame;
+    short   episode;
+    short   map;
+    short   skill;
+
+    short   consoleplayer;
+    short   numplayers;
+    short   angleoffset;
+    short   drone;
+
+    char    data[512];
+} raycom_t;
+
+extern raycom_t     raycom;
+extern void interrupt (*oldrayvect) (void);
+enum    int                     vectorishooked;
+
+int CheckParm (char *check);
+void LaunchRay (void);
+void interrupt NetISR (void);
